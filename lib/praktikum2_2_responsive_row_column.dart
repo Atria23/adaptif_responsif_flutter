@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'identity_footer.dart';
 
 class Praktikum22Responsive extends StatelessWidget {
   const Praktikum22Responsive({super.key});
@@ -8,18 +9,19 @@ class Praktikum22Responsive extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Praktikum 2.2 - Responsif Dasar'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: width < 600
-            ? Column(
-                children: _buildBoxes(),
-              )
-            : Row(
-                children: _buildBoxes(),
-              ),
+      appBar: AppBar(title: const Text('Praktikum 2.2 - Responsif Dasar')),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: width < 600
+                  ? Column(children: _buildBoxes())
+                  : Row(children: _buildBoxes()),
+            ),
+          ),
+          const IdentityFooter(identity: "Danu Trianggoro / C2C023079"),
+        ],
       ),
     );
   }
